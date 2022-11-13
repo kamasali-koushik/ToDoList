@@ -1,38 +1,68 @@
-.App {
-  text-align: center;
+body{
+  background-color: #0f1120 ;
+  color: #aaa;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App{
+  max-width: 300px;
+  margin: 20px auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.task{
+  background-color:rgb(47, 51, 60);
+  border-radius: 10px;
+  padding :5px 9px;
+  margin-top: 5px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.Checkbox svg{
+height : 20px;
+margin-left : 4px;
+margin-right : 4px;
+fill : #61dafb;
+display: flex;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.formtaskname{
+  margin-left: 7px;
+}
+
+
+.taskdone{
+  background-color:rgb(47, 51, 60);
+  border-radius: 10px;
+  padding :5px 9px;
+  margin-top: 5px;
+  display: flex;
+  opacity: 0.3;
+  text-decoration: line-through;
+  transition: opacity .5s linear;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+form{
+  border : 3px solid #515de4;
+  border-radius: 10px;
+  padding: 5px;
+  display: flex;
+}
+
+form input[type = "text"] {
+  background : none;
+  color: aliceblue;
+  border : 0;
+  padding : 0px 8px;
+  display : block;
+  width : 100%;
+}
+
+
+form button{
+  background-color: #61dafb;
+  border :0;
+  border-radius: 4px;
 }
