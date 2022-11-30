@@ -8,7 +8,6 @@ function App() {
 
   useEffect(() => {
     if (tasks.length === 0) return;
-
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
@@ -31,12 +30,33 @@ function App() {
     });
   };
 
+  const numberComplete = tasks.filter((t) => t.done).length;
+
+  const taskLength = tasks.length;
+
+  const getMessage = () => {
+    const percentage = (numberComplete / taskLength) * 100;
+    if (percentage === 0) {
+      return "try do atleast one! 🔔";
+    }
+
+    if (percentage === 100) {
+      return "nice job for today! 💪";
+    }
+    return "keep it going ! ⏩";
+  };
   return (
     <div className="App">
+      <h1>
+        {numberComplete}/{taskLength} Complete
+      </h1>
+      <h2>{getMessage()}</h2>
       <Taskform onAdd={addTask} />
       {tasks.map((task, index) => {
         console.log({ ...task });
-        return <Task {...task} onToggle={done =>updateTaskDone(index, done)} />;
+        return (
+          <Task {...task} onToggle={(done) => updateTaskDone(index, done)} />
+        );
       })}
     </div>
   );
