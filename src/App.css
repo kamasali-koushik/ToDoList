@@ -1,82 +1,89 @@
-body{
-  background-color: #0f1120 ;
+body {
+  background-color: #0f1120;
   color: #aaa;
 }
 
-.App{
+.App {
   max-width: 300px;
   margin: 20px auto;
 }
 
-.task{
-  background-color:rgb(47, 51, 60);
+.task {
+  background-color: rgb(47, 51, 60);
   border-radius: 10px;
-  padding :5px 9px;
+  padding: 5px 9px;
   margin-top: 5px;
   display: flex;
 }
 
-.Checkbox svg{
-height : 20px;
-margin-left : 4px;
-margin-right : 4px;
-fill : #61dafb;
-display: flex;
+.Checkbox svg {
+  height: 20px;
+  margin-left: 4px;
+  margin-right: 4px;
+  fill: #61dafb;
+  display: flex;
 }
 
-.formtaskname{
+.formtaskname {
   margin-left: 7px;
   flex-grow: 1;
 }
 
-.taskdone{
-  background-color:rgb(47, 51, 60);
+.taskdone {
+  background-color: rgb(47, 51, 60);
   border-radius: 10px;
-  padding :5px 9px;
+  padding: 5px 9px;
   margin-top: 5px;
   display: flex;
   opacity: 0.3;
   text-decoration: line-through;
-  transition: opacity .5s linear;
+  transition: opacity 0.5s linear;
 }
 
-*{
+* {
   box-sizing: border-box;
 }
 
-form{
-  border : 3px solid #515de4;
+form {
+  border: 3px solid #515de4;
   border-radius: 10px;
   padding: 5px;
   display: flex;
 }
 
-form input[type = "text"] {
-  background : none;
+form input[type="text"] {
+  background: none;
   color: aliceblue;
-  border : 0;
-  padding : 0px 8px;
-  display : block;
-  width : 100%;
+  border: 0;
+  padding: 0px 8px;
+  display: block;
+  width: 100%;
 }
 
-
-form button{
+form button {
   background-color: #61dafb;
-  border :0;
+  border: 0;
   border-radius: 4px;
 }
 
-h1{
+h1 {
   text-align: center;
 }
 
-h2{
+h2 {
   text-align: center;
 }
 
-.trash{
+.trash {
+  cursor: pointer;
+}
+
+.trash > svg {
   fill: #515de4;
-  
+  width: 14px;
 }
 
+.trash:hover > svg {
+  transition: fill 0.1s;
+  fill: red !important;
+}

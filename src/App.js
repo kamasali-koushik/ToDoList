@@ -7,12 +7,12 @@ function App() {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    if (tasks.length === 0) return;
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
   useEffect(() => {
-    const tasks = JSON.parse(localStorage.getItem("tasks"));
+    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
     setTasks(tasks);
   }, []);
 
@@ -29,13 +29,28 @@ function App() {
       return newTasks;
     });
   };
-
+  const updateName = (taskIndex, newName) => {
+    setTasks((prev) => {
+      const newTasks = [...prev];
+      newTasks[taskIndex].name = newName;
+      return newTasks;
+    });
+  };
+  const updateTaskDelete = (taskIndex) => {
+    const newTasks = tasks.filter((t, ind) => ind != taskIndex);
+    console.log(newTasks);
+    setTasks(newTasks);
+  };
   const numberComplete = tasks.filter((t) => t.done).length;
 
   const taskLength = tasks.length;
 
   const getMessage = () => {
-    const percentage = (numberComplete / taskLength) * 100;
+    const percentage =
+      taskLength === 0 ? 0 : (numberComplete / taskLength) * 100;
+
+    if (taskLength == 0) return "Add tasks to begin the day! 🌅";
+
     if (percentage === 0) {
       return "try do atleast one! 🔔";
     }
@@ -45,6 +60,7 @@ function App() {
     }
     return "keep it going ! ⏩";
   };
+
   return (
     <div className="App">
       <h1>
@@ -53,9 +69,14 @@ function App() {
       <h2>{getMessage()}</h2>
       <Taskform onAdd={addTask} />
       {tasks.map((task, index) => {
-        console.log({ ...task });
         return (
-          <Task {...task} onToggle={(done) => updateTaskDone(index, done)} />
+          <Task
+            {...task}
+            key={`task-${index}`}
+            onRename={(newName) => updateName(index, newName)}
+            onToggle={(done) => updateTaskDone(index, done)}
+            onDelete={() => updateTaskDelete(index)}
+          />
         );
       })}
     </div>
