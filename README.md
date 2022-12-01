@@ -26,7 +26,3 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 ### deleting tasks
 
 ![alt text](https://github.com/koushik-15/todolist/blob/master/github%20pics/deleting%20tasks.png)
-
-### finishing tasks
-
-![alt text] (https://github.com/koushik-15/todolist/blob/master/github%20pics/finishing%20tasks.png)
