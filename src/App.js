@@ -63,9 +63,11 @@ function App() {
 
   return (
     <div className="App">
-      <h1>
-        {numberComplete}/{taskLength} Complete
-      </h1>
+      {taskLength != 0 && (
+        <h1>
+          {numberComplete}/{taskLength} Complete
+        </h1>
+      )}
       <h2>{getMessage()}</h2>
       <Taskform onAdd={addTask} />
       {tasks.map((task, index) => {

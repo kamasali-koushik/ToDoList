@@ -22,6 +22,7 @@ body {
   margin-right: 4px;
   fill: #61dafb;
   display: flex;
+  cursor: pointer;
 }
 
 .formtaskname {
