@@ -1,5 +1,7 @@
 # BASIC TO DO APP
 
+It is basic project based on Reactjs.
+
 In the project directory, you can run:
 
 ### `npm run start`
