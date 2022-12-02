@@ -5,16 +5,18 @@ import Taskform from "./Taskform";
 
 function App() {
   const [tasks, setTasks] = useState([]);
-
-  useEffect(() => {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-  }, [tasks]);
+  const [initiali, setInintial] = useState(true);
 
   useEffect(() => {
     const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-
+    setInintial(false);
     setTasks(tasks);
   }, []);
+  
+  useEffect(() => {
+    if (initiali) return;
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   const addTask = (name) => {
     setTasks((prev) => {

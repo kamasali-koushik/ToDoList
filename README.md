@@ -1,6 +1,6 @@
 # BASIC TO DO APP
 
-It is basic project based on Reactjs.
+It is basic project based on Reactjs. 
 
 In the project directory, you can run:
 
